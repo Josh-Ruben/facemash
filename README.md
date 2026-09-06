@@ -48,7 +48,7 @@ To stay light, the capture loop runs at a few frames per second while idle, spee
 
 ## Privacy
 
-facelint never records, stores, or transmits anything. Frames are processed in memory and discarded immediately. The only network access is a one time download of the MediaPipe model files, about 8 MB, into `~/Library/Application Support/facemash/models` on first run.
+facemash never records, stores, or transmits anything. Frames are processed in memory and discarded immediately. The only network access is a one time download of the MediaPipe model files, about 8 MB, into `~/Library/Application Support/facemash/models` on first run.
 
 ## Development
 
