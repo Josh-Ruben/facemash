@@ -6,11 +6,13 @@ survive restarts and reinstalls.
 
 from __future__ import annotations
 
+import datetime as _dt
 import json
 import os
 import platform
 import threading
 from pathlib import Path
+from typing import Any
 
 APP_NAME = "facemash"
 
