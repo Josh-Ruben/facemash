@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Local config / runtime
+*.json.tmp
+
+# macOS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+*.swp
