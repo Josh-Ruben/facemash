@@ -5,6 +5,7 @@ A macOS menu bar app that watches your webcam and nudges you when you touch your
 Everything runs locally. No video ever leaves your Mac.
 
 ![platform](https://img.shields.io/badge/platform-macOS-black)
+![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-blue)
 ![python](https://img.shields.io/badge/python-3.9%20to%203.12-blue)
 ![license](https://img.shields.io/badge/license-MIT-lightgrey)
 
@@ -15,7 +16,7 @@ pip install facemash-ruben
 facemash
 ```
 
-On first launch, macOS asks for Camera permission. Approve it under System Settings > Privacy & Security > Camera, then relaunch.
+On first launch, your operating system may ask for Camera permission. Approve the permission request, then relaunch facemash if needed.
 
 ## Features
 
@@ -38,7 +39,7 @@ Click the menu bar icon to open the menu.
 | Alerts | Time between nudges, Alert cue (sound, voice, or both) |
 | Privacy and power | Turn the camera off after a chosen period of inactivity |
 
-Settings and your daily count are stored in ~/Library/Application Support/facemash/config.json.
+Settings and your daily count are stored in the operating system’s application data directory.
 
 ## How it works
 
@@ -48,7 +49,7 @@ To stay light, the capture loop runs at a few frames per second while idle, spee
 
 ## Privacy
 
-facemash never records, stores, or transmits anything. Frames are processed in memory and discarded immediately. The only network access is a one time download of the MediaPipe model files, about 8 MB, into `~/Library/Application Support/facemash/models` on first run.
+facemash never records, stores, or transmits anything. Frames are processed in memory and discarded immediately. The only network access is a one-time download of the MediaPipe model files, about 8 MB, into facemash's local application data directory on first run.
 
 ## Development
 
