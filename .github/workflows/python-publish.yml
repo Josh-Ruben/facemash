@@ -44,7 +44,7 @@ jobs:
 
     environment:
       name: pypi
-      url: https://pypi.org/p/facemash
+      url: https://pypi.org/p/facemash-ruben
 
     steps:
       - name: Download package
