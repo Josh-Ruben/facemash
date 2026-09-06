@@ -2,7 +2,7 @@
 
 A cross-platform app that watches your webcam and nudges you when you touch your face, helping you break the habit for healthier skin.
 
-Everything runs locally. No video ever leaves your Mac.
+Everything runs locally. No video ever leaves your computer.
 
 ![platform](https://img.shields.io/badge/platform-macOS-black)
 ![platform](https://img.shields.io/badge/platform-Windows-blue)
