@@ -377,7 +377,7 @@ class FaceTouchDetector:
             import mediapipe as mp
             from mediapipe.tasks import python as mp_python
             from mediapipe.tasks.python import vision
-            from facelint.models import ensure_models
+            from facemash.models import ensure_models
         except Exception as exc:  # pragma: no cover - import-time failure
             self._set(camera_error=f"Missing dependency: {exc}")
             return
