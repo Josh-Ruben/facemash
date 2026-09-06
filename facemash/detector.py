@@ -264,7 +264,7 @@ class FaceTouchDetector:
         if self.running:
             return
         self._stop.clear()
-        self._thread = threading.Thread(target=self._run, name="facelint-detector", daemon=True)
+        self._thread = threading.Thread(target=self._run, name="facemash-detector", daemon=True)
         self._thread.start()
 
     def stop(self) -> None:
