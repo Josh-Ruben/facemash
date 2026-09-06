@@ -11,9 +11,10 @@ Everything runs locally. No video ever leaves your Mac.
 ## Install
 
 ```sh
-brew tap chandansgowda/tap
-brew install facelint
-facelint
+git clone https://github.com/Josh-Ruben/facemash.git
+cd facemash
+pip install .
+facemash
 ```
 
 On first launch, macOS asks for Camera permission. Approve it under System Settings > Privacy & Security > Camera, then relaunch.
