@@ -4,8 +4,8 @@ A cross-platform app that watches your webcam and nudges you when you touch your
 
 Everything runs locally. No video ever leaves your Mac.
 
-![macOS](https://img.shields.io/badge/platform-macOS-black)
-![Windows](https://img.shields.io/badge/platform-Windows-0078D4)
+![platform](https://img.shields.io/badge/platform-macOS-black)
+![platform](https://img.shields.io/badge/platform-Windows-blue)
 ![python](https://img.shields.io/badge/python-3.9%20to%203.12-blue)
 ![license](https://img.shields.io/badge/license-MIT-lightgrey)
 
