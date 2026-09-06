@@ -1,11 +1,11 @@
 # facemash
 
-A macOS menu bar app that watches your webcam and nudges you when you touch your face, helping you break the habit for healthier skin.
+A cross-platform app that watches your webcam and nudges you when you touch your face, helping you break the habit for healthier skin.
 
 Everything runs locally. No video ever leaves your Mac.
 
-![platform](https://img.shields.io/badge/platform-macOS-black)
-![platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-blue)
+![macOS](https://img.shields.io/badge/platform-macOS-black)
+![Windows](https://img.shields.io/badge/platform-Windows-0078D4)
 ![python](https://img.shields.io/badge/python-3.9%20to%203.12-blue)
 ![license](https://img.shields.io/badge/license-MIT-lightgrey)
 
