@@ -11,9 +11,7 @@ Everything runs locally. No video ever leaves your Mac.
 ## Install
 
 ```sh
-git clone https://github.com/Josh-Ruben/facemash.git
-cd facemash
-pip install .
+pip install facemash-ruben
 facemash
 ```
 
