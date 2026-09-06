@@ -13,7 +13,7 @@ from pathlib import Path
 
 import rumps
 
-from facmash import __version__
+from facemash import __version__
 from facemash.config import (
     CUE_CHOICES,
     HOLD_CHOICES,
@@ -64,7 +64,7 @@ def _header(text: str) -> rumps.MenuItem:
 
 class FacemashApp(rumps.App):
     def __init__(self) -> None:
-        super().__init__("facelint", quit_button=None)
+        super().__init__("facemash", quit_button=None)
         self.config = Config()
         self.detector = FaceTouchDetector(get_setting=self.config.get)
         self._icon_state = None
@@ -139,9 +139,9 @@ class FacemashApp(rumps.App):
             idle_menu,
             None,
             rumps.MenuItem("Reset today's count", callback=self.reset_count),
-            rumps.MenuItem("About facelint", callback=self.about),
+            rumps.MenuItem("About facemash", callback=self.about),
             None,
-            rumps.MenuItem("Quit facelint", callback=self.quit_app),
+            rumps.MenuItem("Quit facemash", callback=self.quit_app),
         ]
 
         self._sync_checks()
@@ -232,7 +232,7 @@ class FacemashApp(rumps.App):
             self.preview_item.state = 1
         except Exception as exc:
             d.set_preview(False)
-            rumps.alert(title="facelint", message=f"Couldn't open the preview window:\n{exc}",
+            rumps.alert(title="facemash", message=f"Couldn't open the preview window:\n{exc}",
                         ok="OK", icon_path=APP_ICON)
 
     def _close_preview(self) -> None:
@@ -281,9 +281,9 @@ class FacemashApp(rumps.App):
             title=f"facemash {__version__}",
             message=(
                 "Keep your hands off your face — for healthier skin.\n\n"
-                "facelint watches your webcam and gently nudges you when you "
+                ""Facemash watches your webcam and gently nudges you when you "
                 "touch your face. Everything runs locally; no video ever leaves "
-                "your Mac, and the camera turns off when you pause or step away."
+                "your computer, and the camera turns off when you pause or step away."
             ),
             ok="Got it",
             icon_path=APP_ICON,
