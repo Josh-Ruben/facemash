@@ -59,10 +59,10 @@ cd facemash
 uv venv --python 3.12
 uv pip install -e .
 python -m tests.test_geometry   # pure logic tests, no camera needed
-facelint
+facemash
 ```
 
-MediaPipe publishes wheels for Python 3.9 to 3.12, so facelint targets that range.
+MediaPipe publishes wheels for Python 3.9 to 3.12, so facemash targets that range.
 
 ## License
 
