@@ -13,8 +13,8 @@ from pathlib import Path
 
 import rumps
 
-from facelint import __version__
-from facelint.config import (
+from facmash import __version__
+from facemash.config import (
     CUE_CHOICES,
     HOLD_CHOICES,
     IDLE_TIMEOUT_CHOICES,
@@ -22,8 +22,8 @@ from facelint.config import (
     SENSITIVITIES,
     Config,
 )
-from facelint.detector import FaceTouchDetector
-from facelint.preview import PreviewWindow, render_dashboard
+from facemash.detector import FaceTouchDetector
+from facemash.preview import PreviewWindow, render_dashboard
 
 ICONS = Path(__file__).parent / "resources" / "icons"
 APP_ICON = str(ICONS / "app_icon.png")
@@ -62,7 +62,7 @@ def _header(text: str) -> rumps.MenuItem:
     return item
 
 
-class FacelintApp(rumps.App):
+class FacemashApp(rumps.App):
     def __init__(self) -> None:
         super().__init__("facelint", quit_button=None)
         self.config = Config()
@@ -278,7 +278,7 @@ class FacelintApp(rumps.App):
     # -- about / quit -------------------------------------------------------
     def about(self, _sender) -> None:
         rumps.alert(
-            title=f"facelint {__version__}",
+            title=f"facemash {__version__}",
             message=(
                 "Keep your hands off your face — for healthier skin.\n\n"
                 "facelint watches your webcam and gently nudges you when you "
@@ -320,7 +320,7 @@ class FacelintApp(rumps.App):
         if d.consume_alert():
             today, total = self.config.record_touch()
             try:
-                rumps.notification(title="facelint", subtitle="Hands off your face!",
+                rumps.notification(title="facemash", subtitle="Hands off your face!",
                                    message=f"{today} today · {total} all-time")
             except Exception:
                 pass
@@ -328,13 +328,13 @@ class FacelintApp(rumps.App):
         self.count_item.title = f"Touches today: {self.config.today_count}"
 
         # Optional: auto-open the preview once on launch (used for testing).
-        if not self._auto_preview_done and os.environ.get("FACELINT_OPEN_PREVIEW"):
+        if not self._auto_preview_done and os.environ.get("FACEMASH_OPEN_PREVIEW"):
             self._auto_preview_done = True
             self.toggle_preview(None)
 
 
 def main() -> None:
-    FacelintApp().run()
+    FacemashApp().run()
 
 
 if __name__ == "__main__":
