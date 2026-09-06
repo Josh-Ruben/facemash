@@ -34,7 +34,7 @@ SENSITIVITIES = ("low", "medium", "high")
 HOLD_CHOICES = (0.8, 1.2, 2.0, 3.0)
 NUDGE_INTERVAL_CHOICES = (10, 30, 60, 120, 300)
 # 0 == always on (never auto-pause on idle)
-IDLE_TIMEOUT_CHOICES = (90)
+IDLE_TIMEOUT_CHOICES = (60)
 CUE_CHOICES = ("sound", "voice", "both")
 
 DEFAULTS: dict[str, Any] = {
