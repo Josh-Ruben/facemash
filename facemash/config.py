@@ -34,7 +34,7 @@ SENSITIVITIES = ("low", "medium", "high")
 HOLD_CHOICES = (0.8, 1.2, 2.0, 3.0)
 NUDGE_INTERVAL_CHOICES = (10, 30, 60, 120, 300)
 # 0 == always on (never auto-pause on idle)
-IDLE_TIMEOUT_CHOICES = (60)
+IDLE_TIMEOUT_CHOICES = (0,30,60,120,300)
 CUE_CHOICES = ("sound", "voice", "both")
 
 DEFAULTS: dict[str, Any] = {
@@ -48,7 +48,7 @@ DEFAULTS: dict[str, Any] = {
     "ignore_chin": True,
     # Turn the camera off when you've been idle this many seconds (0 = never).
     "pause_when_idle": True,
-    "idle_timeout_seconds": 90,
+    "idle_timeout_seconds": 60,
     "cue": "sound",
     "sound": "",
     "camera_index": 0,
