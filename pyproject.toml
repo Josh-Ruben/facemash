@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "facemash"
-version = "0.3.0"
+name = "facemash-ruben"
+version = "0.3.1"
 description = "A macOS menu-bar app that watches your webcam and nudges you when you touch your face — to build the habit of keeping your hands off and improve skin health."
 readme = "README.md"
 requires-python = ">=3.9,<3.13"
