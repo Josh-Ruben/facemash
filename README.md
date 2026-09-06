@@ -39,7 +39,7 @@ Click the menu bar icon to open the menu.
 | Alerts | Time between nudges, Alert cue (sound, voice, or both) |
 | Privacy and power | Turn the camera off after a chosen period of inactivity |
 
-Settings and your daily count are stored in `~/Library/Application Support/facelint/config.json`.
+Settings and your daily count are stored in `~/Library/Application Support/facemash/config.json.
 
 ## How it works
 
@@ -49,7 +49,7 @@ To stay light, the capture loop runs at a few frames per second while idle, spee
 
 ## Privacy
 
-facelint never records, stores, or transmits anything. Frames are processed in memory and discarded immediately. The only network access is a one time download of the MediaPipe model files, about 8 MB, into `~/Library/Application Support/facelint/models` on first run.
+facelint never records, stores, or transmits anything. Frames are processed in memory and discarded immediately. The only network access is a one time download of the MediaPipe model files, about 8 MB, into `~/Library/Application Support/facemash/models` on first run.
 
 ## Development
 
