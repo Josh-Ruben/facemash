@@ -280,11 +280,11 @@ class FacemashApp(rumps.App):
         rumps.alert(
             title=f"facemash {__version__}",
             message=(
-                "Keep your hands off your face — for healthier skin.\n\n"
-                ""Facemash watches your webcam and gently nudges you when you "
-                "touch your face. Everything runs locally; no video ever leaves "
-                "your computer, and the camera turns off when you pause or step away."
-            ),
+    "Keep your hands off your face — for healthier skin.\n\n"
+    "Facemash watches your webcam and gently nudges you when you "
+    "touch your face. Everything runs locally; no video ever leaves "
+    "your computer, and the camera turns off when you pause or step away."
+),
             ok="Got it",
             icon_path=APP_ICON,
         )
