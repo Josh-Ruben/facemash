@@ -1,18 +1,28 @@
-"""Persistent user configuration and daily stats for facelint.
+"""Persistent user configuration and daily stats for Facemash.
 
-Settings live in ``~/Library/Application Support/facelint/config.json`` so they
+Settings are stored in an operating-system-appropriate location so they
 survive restarts and reinstalls.
 """
 
 from __future__ import annotations
 
-import datetime as _dt
 import json
+import os
+import platform
 import threading
 from pathlib import Path
-from typing import Any
 
-CONFIG_DIR = Path.home() / "Library" / "Application Support" / "facelint"
+APP_NAME = "facemash"
+
+if platform.system() == "Darwin":
+    CONFIG_DIR = Path.home() / "Library" / "Application Support" / APP_NAME
+elif platform.system() == "Windows":
+    CONFIG_DIR = Path(
+        os.environ.get("APPDATA", Path.home() / "AppData" / "Roaming")
+    ) / APP_NAME
+else:
+    CONFIG_DIR = Path.home() / ".config" / APP_NAME
+
 CONFIG_PATH = CONFIG_DIR / "config.json"
 
 # Sensitivity presets are interpreted by the detector. ``low`` only reacts to
@@ -38,7 +48,7 @@ DEFAULTS: dict[str, Any] = {
     "pause_when_idle": True,
     "idle_timeout_seconds": 90,
     "cue": "sound",
-    "sound": "/System/Library/Sounds/Funk.aiff",
+    "sound": "",
     "camera_index": 0,
     "stats": {"date": "", "today": 0, "total": 0},
 }
