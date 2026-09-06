@@ -3,13 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "facelint"
+name = "facemash"
 version = "0.3.0"
 description = "A macOS menu-bar app that watches your webcam and nudges you when you touch your face — to build the habit of keeping your hands off and improve skin health."
 readme = "README.md"
 requires-python = ">=3.9,<3.13"
 license = { text = "MIT" }
-authors = [{ name = "Chandan" }]
+authors = [{ name = "Ruben" }]
 keywords = ["menubar", "macos", "face-touch", "habit", "mediapipe", "webcam", "skin"]
 classifiers = [
     "Environment :: MacOS X :: Cocoa",
@@ -25,10 +25,10 @@ dependencies = [
 ]
 
 [project.scripts]
-facelint = "facelint.app:main"
+facemash = "facemash.app:main"
 
 [project.urls]
-Homepage = "https://github.com/chandansgowda/facelint"
+Homepage = "https://github.com/Josh-Ruben/facemash"
 
 [tool.hatch.build.targets.wheel]
-packages = ["facelint"]
+packages = ["facemash"]
