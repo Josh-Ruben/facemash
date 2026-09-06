@@ -39,7 +39,8 @@ Click the menu bar icon to open the menu.
 | Alerts | Time between nudges, Alert cue (sound, voice, or both) |
 | Privacy and power | Turn the camera off after a chosen period of inactivity |
 
-Settings and your daily count are stored in `~/Library/Application Support/facemash/config.json.
+Settings and your daily count are stored in 
+~/Library/Application Support/facemash/config.json.
 
 ## How it works
 
