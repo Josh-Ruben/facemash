@@ -3,10 +3,12 @@
 Run with:  python -m tests.test_geometry   (or pytest)
 """
 
-from facemash.detector import Detector(
+from facemash.detector import (
+    Detector,
     ALL_HAND_POINTS,
     FINGERTIPS,
     SENSITIVITY_PROFILES,
+)
     BBox,
     hands_touch_face,
 )
