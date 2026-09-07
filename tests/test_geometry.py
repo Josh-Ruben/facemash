@@ -4,7 +4,7 @@ Run with:  python -m tests.test_geometry   (or pytest)
 """
 
 from facemash.detector import (
-    Detector,
+    FaceTouchDetector,
     ALL_HAND_POINTS,
     FINGERTIPS,
     SENSITIVITY_PROFILES,
