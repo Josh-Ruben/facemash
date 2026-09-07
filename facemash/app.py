@@ -1,4 +1,4 @@
-"facemash menu-bar application.
+"""facemash menu-bar application."""
 
 The rumps event loop owns the main thread; the camera/MediaPipe work happens in
 ``FaceTouchDetector``'s background thread. Repeating ``rumps.Timer``s poll the
