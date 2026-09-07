@@ -8,7 +8,6 @@ from facemash.detector import (
     ALL_HAND_POINTS,
     FINGERTIPS,
     SENSITIVITY_PROFILES,
-)
     BBox,
     hands_touch_face,
 )
