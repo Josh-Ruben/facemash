@@ -12,7 +12,7 @@ Everything runs locally. No video ever leaves your computer.
 ## Install
 
 ```sh
-pip install facemash-ruben
+pip install --upgrade facemash-ruben
 facemash
 ```
 
