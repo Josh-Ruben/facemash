@@ -3,7 +3,7 @@
 Run with:  python -m tests.test_geometry   (or pytest)
 """
 
-from facelint.detector import (
+from facemash.detector import ... (
     ALL_HAND_POINTS,
     FINGERTIPS,
     SENSITIVITY_PROFILES,
