@@ -299,61 +299,63 @@ class FaceTouchDetector:
         with self._preview_lock:
             return self._preview_frame
 
-    # -- idle / should-monitor ---------------------------------------------
-    def _idle_seconds(self) -> float:
-    """Seconds since the last keyboard/mouse input."""
-    now = time.monotonic()
-    if now - self._idle_checked_at < 2.0:
+    # -- idle / should-    def _idle_seconds(self) -> float:
+        """Seconds since the last keyboard/mouse input."""
+        now = time.monotonic()
+        if now - self._idle_checked_at < 2.0:
+            return self._idle_cached
+
+        self._idle_checked_at = now
+
+        if platform.system() == "Darwin":
+            try:
+                out = subprocess.run(
+                    ["ioreg", "-c", "IOHIDSystem"],
+                    capture_output=True,
+                    text=True,
+                    timeout=2,
+                ).stdout
+
+                m = re.search(r'"HIDIdleTime"\s*=\s*(\d+)', out)
+
+                self._idle_cached = (
+                    int(m.group(1)) / 1_000_000_000.0
+                    if m
+                    else 0.0
+                )
+            except Exception:
+                self._idle_cached = 0.0
+
+        elif platform.system() == "Windows":
+            try:
+                import ctypes
+
+                class LASTINPUTINFO(ctypes.Structure):
+                    _fields_ = [
+                        ("cbSize", ctypes.c_uint),
+                        ("dwTime", ctypes.c_uint),
+                    ]
+
+                info = LASTINPUTINFO()
+                info.cbSize = ctypes.sizeof(LASTINPUTINFO)
+
+                ctypes.windll.user32.GetLastInputInfo(
+                    ctypes.byref(info)
+                )
+
+                millis = (
+                    ctypes.windll.kernel32.GetTickCount()
+                    - info.dwTime
+                )
+                self._idle_cached = millis / 1000.0
+
+            except Exception:
+                self._idle_cached = 0.0
+
+        else:
+            self._idle_cached = 0.0
+
         return self._idle_cached
-
-    self._idle_checked_at = now
-
-    if platform.system() == "Darwin":
-        try:
-            out = subprocess.run(
-                ["ioreg", "-c", "IOHIDSystem"],
-                capture_output=True,
-                text=True,
-                timeout=2,
-            ).stdout
-
-            m = re.search(r'"HIDIdleTime"\s*=\s*(\d+)', out)
-
-            self._idle_cached = (
-                int(m.group(1)) / 1_000_000_000.0
-                if m
-                else 0.0
-            )
-        except Exception:
-            self._idle_cached = 0.0
-
-    elif platform.system() == "Windows":
-        try:
-            import ctypes
-
-            class LASTINPUTINFO(ctypes.Structure):
-                _fields_ = [
-                    ("cbSize", ctypes.c_uint),
-                    ("dwTime", ctypes.c_uint),
-                ]
-
-            info = LASTINPUTINFO()
-            info.cbSize = ctypes.sizeof(LASTINPUTINFO)
-
-            ctypes.windll.user32.GetLastInputInfo(
-                ctypes.byref(info)
-            )
-
-            millis = ctypes.windll.kernel32.GetTickCount() - info.dwTime
-            self._idle_cached = millis / 1000.0
-
-        except Exception:
-            self._idle_cached = 0.0
-
-    else:
-        self._idle_cached = 0.0
-
-    return self._idle_cached
 
     def _should_monitor(self) -> tuple[bool, bool]:
         """Return (monitor, auto_paused)."""
@@ -385,44 +387,44 @@ class FaceTouchDetector:
             except Exception:
                 pass
 
-    def _play_cue(self) -> None:
-    cue = str(self._get("cue") or "sound")
-    sound = str(
-        self._get("sound")
-        or "/System/Library/Sounds/Funk.aiff"
-    )
+        def _play_cue(self) -> None:
+        cue = str(self._get("cue") or "sound")
+        sound = str(
+            self._get("sound")
+            or "/System/Library/Sounds/Funk.aiff"
+        )
 
-    system = platform.system()
+        system = platform.system()
 
-    try:
-        if system == "Darwin":
-            if cue in ("sound", "both"):
-                if os.path.exists(sound):
-                    subprocess.Popen(["afplay", sound])
-                else:
+        try:
+            if system == "Darwin":
+                if cue in ("sound", "both"):
+                    if os.path.exists(sound):
+                        subprocess.Popen(["afplay", sound])
+                    else:
+                        subprocess.Popen(
+                            ["osascript", "-e", "beep"]
+                        )
+
+                if cue in ("voice", "both"):
                     subprocess.Popen(
-                        ["osascript", "-e", "beep"]
+                        ["say", "Hands off your face"]
                     )
 
-            if cue in ("voice", "both"):
-                subprocess.Popen(
-                    ["say", "Hands off your face"]
-                )
+            elif system == "Windows":
+                if cue in ("sound", "both"):
+                    import winsound
+                    winsound.MessageBeep()
 
-        elif system == "Windows":
-            if cue in ("sound", "both"):
-                import winsound
-                winsound.MessageBeep()
+                if cue in ("voice", "both"):
+                    import pyttsx3
 
-            if cue in ("voice", "both"):
-                import pyttsx3
+                    engine = pyttsx3.init()
+                    engine.say("Hands off your face")
+                    engine.runAndWait()
 
-                engine = pyttsx3.init()
-                engine.say("Hands off your face")
-                engine.runAndWait()
-
-    except Exception:
-        pass
+        except Exception:
+            pass
 
     def _open_camera(self, cv2):
         cam_index = int(self._get("camera_index") or 0)
