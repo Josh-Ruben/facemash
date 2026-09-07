@@ -10,7 +10,7 @@ from __future__ import annotations
 import urllib.request
 from pathlib import Path
 
-from facelint.config import CONFIG_DIR
+from facemash.config import CONFIG_DIR
 
 MODELS_DIR = CONFIG_DIR / "models"
 
