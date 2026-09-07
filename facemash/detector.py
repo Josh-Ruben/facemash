@@ -299,7 +299,7 @@ class FaceTouchDetector:
         with self._preview_lock:
             return self._preview_frame
 
-  # -- idle / should-monitor ---------------------------------------------
+      # -- idle / should-monitor ---------------------------------------------
     def _idle_seconds(self) -> float:
         """Seconds since the last keyboard/mouse input."""
         now = time.monotonic()
