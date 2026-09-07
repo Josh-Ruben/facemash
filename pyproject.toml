@@ -12,9 +12,9 @@ license = { text = "MIT" }
 authors = [{ name = "Ruben" }]
 keywords = ["menubar", "macos", "face-touch", "habit", "mediapipe", "webcam", "skin"]
 classifiers = [
-    "Environment :: MacOS X :: Cocoa",
-    "Operating System :: MacOS :: MacOS X",
     "Programming Language :: Python :: 3",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
     "Topic :: Utilities",
 ]
 dependencies = [
