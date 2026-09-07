@@ -28,7 +28,7 @@ dependencies = [
 ]
 
 [project.scripts]
-facemash = "facemash.app:main"
+facemash = "facemash.__main__:main"
 
 [project.urls]
 Homepage = "https://github.com/Josh-Ruben/facemash"
