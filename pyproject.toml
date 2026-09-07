@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.9,<3.13"
 license = { text = "MIT" }
 authors = [{ name = "Ruben" }]
-keywords = ["cross-platform", "windows", "macos", "face-touch", "habit", "mediapipe", "webcam", "skin"]
+keywords = ["face-touch", "habit", "mediapipe", "webcam", "skin", "windows", "macos", "cross-platform"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: MacOS",
