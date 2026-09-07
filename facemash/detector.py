@@ -300,7 +300,7 @@ class FaceTouchDetector:
             return self._preview_frame
 
   # -- idle / should-monitor ---------------------------------------------
-def _idle_seconds(self) -> float:
+    def _idle_seconds(self) -> float:
         """Seconds since the last keyboard/mouse input."""
         now = time.monotonic()
         if now - self._idle_checked_at < 2.0:
@@ -388,7 +388,7 @@ def _idle_seconds(self) -> float:
             except Exception:
                 pass
 
-            def _play_cue(self) -> None:
+    def _play_cue(self) -> None:
         cue = str(self._get("cue") or "sound")
         sound = str(
             self._get("sound")
