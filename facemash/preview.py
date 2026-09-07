@@ -8,8 +8,6 @@ which works on both macOS and Windows.
 
 from __future__ import annotations
 
-import io
-import platform
 from functools import lru_cache
 from typing import Optional
 
