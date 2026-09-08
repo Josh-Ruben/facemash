@@ -16,7 +16,7 @@ pip install --upgrade facemash-ruben
 facemash
 ```
 
-On first launch, your operating system may ask for Camera permission. Approve the permission request, then relaunch facemash if needed.
+On first launch, your operating system may ask for Camera permission. Approve the permission request, then relaunch facemash if needed
 
 ## Features
 
